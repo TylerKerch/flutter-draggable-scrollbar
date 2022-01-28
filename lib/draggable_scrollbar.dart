@@ -426,18 +426,18 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
         );
 
         if (_barOffset < barMinScrollExtent+100) {
-          _barOffset = barMinScrollExtent;
+          _barOffset = barMinScrollExtent+100;
         }
         if (_barOffset > barMaxScrollExtent+100) {
-          _barOffset = barMaxScrollExtent;
+          _barOffset = barMaxScrollExtent+100;
         }
 
         _viewOffset += notification.scrollDelta!;
         if (_viewOffset < widget.controller.position.minScrollExtent+100) {
           _viewOffset = widget.controller.position.minScrollExtent+100;
         }
-        if (_viewOffset > viewMaxScrollExtent) {
-          _viewOffset = viewMaxScrollExtent;
+        if (_viewOffset > viewMaxScrollExtent+100) {
+          _viewOffset = viewMaxScrollExtent+100;
         }
       }
 
