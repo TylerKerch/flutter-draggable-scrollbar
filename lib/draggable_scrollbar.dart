@@ -34,6 +34,9 @@ class DraggableScrollbar extends StatefulWidget {
   /// The amount of padding that should surround the thumb
   final EdgeInsetsGeometry? padding;
 
+  /// Height of app bar for padding
+  final double appBarHeight;
+  
   /// Determines how quickly the scrollbar will animate in and out
   final Duration scrollbarAnimationDuration;
 
@@ -61,6 +64,7 @@ class DraggableScrollbar extends StatefulWidget {
     required this.child,
     required this.controller,
     this.padding,
+    this.appBarHeight,
     this.scrollbarAnimationDuration = const Duration(milliseconds: 300),
     this.scrollbarTimeToFade = const Duration(milliseconds: 600),
     this.labelTextBuilder,
@@ -355,7 +359,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
   double get barMaxScrollExtent =>
       context.size!.height - widget.heightScrollThumb;
 
-  double get barMinScrollExtent => 100;
+  double get barMinScrollExtent => widget.appBarHeight;
 
   double get viewMaxScrollExtent => widget.controller.position.maxScrollExtent;
 
@@ -462,7 +466,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
     double barMaxScrollExtent,
     double viewMaxScrollExtent,
   ) {
-    return scrollViewDelta * (barMaxScrollExtent-100) / viewMaxScrollExtent;
+    return scrollViewDelta * (barMaxScrollExtent-widget.appBarHeight) / viewMaxScrollExtent;
   }
 
   double getScrollViewDelta(
@@ -470,7 +474,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
     double barMaxScrollExtent,
     double viewMaxScrollExtent,
   ) {
-    return barDelta * viewMaxScrollExtent / (barMaxScrollExtent-100);
+    return barDelta * viewMaxScrollExtent / (barMaxScrollExtent-widget.appBarHeight);
   }
 
   void _onVerticalDragStart(DragStartDetails details) {
