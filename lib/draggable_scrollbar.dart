@@ -359,7 +359,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
 
   double get viewMaxScrollExtent => widget.controller.position.maxScrollExtent;
 
-  double get viewMinScrollExtent => widget.controller.position.minScrollExtent;
+  double get viewMinScrollExtent => widget.controller.position.minScrollExtent+100;
 
   @override
   Widget build(BuildContext context) {
