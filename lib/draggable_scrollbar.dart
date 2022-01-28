@@ -462,7 +462,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
     double barMaxScrollExtent,
     double viewMaxScrollExtent,
   ) {
-    return scrollViewDelta * barMaxScrollExtent / viewMaxScrollExtent;
+    return scrollViewDelta * (barMaxScrollExtent-100) / viewMaxScrollExtent;
   }
 
   double getScrollViewDelta(
@@ -470,7 +470,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
     double barMaxScrollExtent,
     double viewMaxScrollExtent,
   ) {
-    return barDelta * viewMaxScrollExtent / barMaxScrollExtent;
+    return barDelta * viewMaxScrollExtent / (barMaxScrollExtent-100);
   }
 
   void _onVerticalDragStart(DragStartDetails details) {
