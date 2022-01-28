@@ -319,7 +319,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
   @override
   void initState() {
     super.initState();
-    _barOffset = 0.0;
+    _barOffset = 100.0;
     _viewOffset = 0.0;
     _isDragInProcess = false;
 
