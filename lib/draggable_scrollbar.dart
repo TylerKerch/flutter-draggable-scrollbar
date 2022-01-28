@@ -362,7 +362,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
   double get barMaxScrollExtent =>
       context.size!.height - widget.heightScrollThumb;
 
-  double get barMinScrollExtent => widget.appBarHeight;
+  double get barMinScrollExtent => widget.appBarHeight!;
 
   double get viewMaxScrollExtent => widget.controller.position.maxScrollExtent;
 
@@ -469,7 +469,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
     double barMaxScrollExtent,
     double viewMaxScrollExtent,
   ) {
-    return scrollViewDelta * (barMaxScrollExtent-widget.appBarHeight) / viewMaxScrollExtent;
+    return scrollViewDelta * (barMaxScrollExtent-widget.appBarHeight!) / viewMaxScrollExtent;
   }
 
   double getScrollViewDelta(
@@ -477,7 +477,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
     double barMaxScrollExtent,
     double viewMaxScrollExtent,
   ) {
-    return barDelta * viewMaxScrollExtent / (barMaxScrollExtent-widget.appBarHeight);
+    return barDelta * viewMaxScrollExtent / (barMaxScrollExtent-widget.appBarHeight!);
   }
 
   void _onVerticalDragStart(DragStartDetails details) {
