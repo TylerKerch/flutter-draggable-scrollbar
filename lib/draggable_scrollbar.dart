@@ -319,7 +319,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
   @override
   void initState() {
     super.initState();
-    _barOffset = 100.0;
+    _barOffset = 0.0;
     _viewOffset = 0.0;
     _isDragInProcess = false;
 
@@ -353,11 +353,11 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
   }
 
   double get barMaxScrollExtent =>
-      context.size!.height - widget.heightScrollThumb;
+      context.size!.height - widget.heightScrollThumb+100;
 
   double get barMinScrollExtent => 100;
 
-  double get viewMaxScrollExtent => widget.controller.position.maxScrollExtent;
+  double get viewMaxScrollExtent => widget.controller.position.maxScrollExtent+100;
 
   double get viewMinScrollExtent => widget.controller.position.minScrollExtent+100;
 
@@ -425,10 +425,10 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
           viewMaxScrollExtent,
         );
 
-        if (_barOffset < barMinScrollExtent) {
+        if (_barOffset < barMinScrollExtent+100) {
           _barOffset = barMinScrollExtent;
         }
-        if (_barOffset > barMaxScrollExtent) {
+        if (_barOffset > barMaxScrollExtent+100) {
           _barOffset = barMaxScrollExtent;
         }
 
@@ -489,10 +489,10 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
       if (_isDragInProcess) {
         _barOffset += details.delta.dy;
 
-        if (_barOffset < barMinScrollExtent) {
+        if (_barOffset < barMinScrollExtent+100) {
           _barOffset = barMinScrollExtent;
         }
-        if (_barOffset > barMaxScrollExtent) {
+        if (_barOffset > barMaxScrollExtent+100) {
           _barOffset = barMaxScrollExtent;
         }
 
