@@ -35,7 +35,7 @@ class DraggableScrollbar extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
 
   /// Height of app bar for padding
-  final double appBarHeight;
+  final double? appBarHeight;
   
   /// Determines how quickly the scrollbar will animate in and out
   final Duration scrollbarAnimationDuration;
