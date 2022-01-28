@@ -420,7 +420,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
   //so it should also changes his position
   //but only if it isn't dragged
   changePosition(ScrollNotification notification) {
-    if (_isDragInProcess || widget.controller.position.pixels<viewMinScrollExtent || widget.controller.position.pixels>viewMaxScrollExtent) {
+    if (_isDragInProcess || widget.controller.offset<viewMinScrollExtent || widget.controller.offset>viewMaxScrollExtent) {
       return;
     }
 
