@@ -31,6 +31,7 @@ class DraggableScrollbar extends StatefulWidget {
   /// The background color of the label and thumb
   final Color backgroundColor;
 
+  final VoidCallBack onDrag;
   /// The amount of padding that should surround the thumb
   final EdgeInsetsGeometry? padding;
 
@@ -63,6 +64,7 @@ class DraggableScrollbar extends StatefulWidget {
     required this.scrollThumbBuilder,
     required this.child,
     required this.controller,
+    required this.onDrag,
     this.padding,
     this.appBarHeight,
     this.scrollbarAnimationDuration = const Duration(milliseconds: 300),
@@ -79,6 +81,7 @@ class DraggableScrollbar extends StatefulWidget {
     this.alwaysVisibleScrollThumb = false,
     required this.child,
     required this.controller,
+    required this.onDrag,
     this.heightScrollThumb = 48.0,
     this.backgroundColor = Colors.white,
     this.padding,
@@ -97,6 +100,7 @@ class DraggableScrollbar extends StatefulWidget {
     this.alwaysVisibleScrollThumb = false,
     required this.child,
     required this.controller,
+    required this.onDrag,
     this.heightScrollThumb = 48.0,
     this.backgroundColor = Colors.white,
     this.padding,
@@ -115,6 +119,7 @@ class DraggableScrollbar extends StatefulWidget {
     this.alwaysVisibleScrollThumb = false,
     required this.child,
     required this.controller,
+    required this.onDrag,
     this.heightScrollThumb = 48.0,
     this.backgroundColor = Colors.white,
     this.padding,
@@ -485,6 +490,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
       _isDragInProcess = true;
       _labelAnimationController.forward();
       _fadeoutTimer?.cancel();
+      widget.onDrag();
     });
   }
 
@@ -526,6 +532,7 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
     });
     setState(() {
       _isDragInProcess = false;
+      widget.onDrag();
     });
   }
 }
