@@ -31,7 +31,7 @@ class DraggableScrollbar extends StatefulWidget {
   /// The background color of the label and thumb
   final Color backgroundColor;
 
-  final VoidCallBack onDrag;
+  final VoidCallback onDrag;
   /// The amount of padding that should surround the thumb
   final EdgeInsetsGeometry? padding;
 
