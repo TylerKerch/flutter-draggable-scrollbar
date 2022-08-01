@@ -425,10 +425,10 @@ class _DraggableScrollbarState extends State<DraggableScrollbar>
   //so it should also changes his position
   //but only if it isn't dragged
   changePosition(ScrollNotification notification) {
-    if (_isDragInProcess) {
+    if (_isDragInProcess || MediaQuery.of(context).viewInsets.bottom != 0) {
       return;
     }
-
+    
     setState(() {
       if (notification is ScrollUpdateNotification) {
         _barOffset += getBarDelta(
